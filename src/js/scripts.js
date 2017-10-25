@@ -29,9 +29,11 @@ const weatherApp = new Vue({
   },
   methods: {
     getLocation() {
+      console.log('here in location')
       navigator.geolocation.getCurrentPosition(this.getWeather)
     },
     getWeather(position) {
+      console.log(position)
       const self = this
       const lng = position.coords.longitude
       const lat = position.coords.latitude
