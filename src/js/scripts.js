@@ -30,8 +30,9 @@ const weatherApp = new Vue({
   methods: {
     getLocation() {
       console.log('here in location')
-      navigator.geolocation.getCurrentPosition((pos) => console.log(pos))
+      navigator.geolocation.getCurrentPosition(this.getWeather)
     },
+
     getWeather(position) {
       console.log(position)
       const self = this
