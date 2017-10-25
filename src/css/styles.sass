@@ -1,0 +1,78 @@
+// vars and mixings
+$primary-color: #F44336
+$contrast-color: #555
+$light-color: #fcfcfc
+
+=makeFlex($width, $direction, $h-justify, $v-align)
+  display: flex
+  flex-direction: $direction
+  width: $width
+  justify-content: $h-justify
+  align-items: $v-align
+
+// styles
+*
+  margin: auto
+  padding: 0
+  box-sizing: border-box
+#weather-app
+  background-color: $primary-color
+  background-size: cover
+header
+  background: black
+  color: white
+  +makeFlex(100%, row, center, center)
+  height: 60px
+.content
+  +makeFlex(100%, row, flex-start, flex-start)
+  background: transparent
+  color: white
+  height: 100vh
+  min-height: fit-content
+.side
+  background: rgba(0, 0, 0,.4)
+  width: 40%
+  transition: all ease .3s
+  animation: come-in 1s
+  height: 100%
+  text-align: center
+.section-part
+  margin: 25px
+  background: rgba(255,255,255, .1)
+  padding: 10px
+  min-height: 100px
+button 
+  background: $primary-color
+  color: $light-color
+  border: 0
+  padding: 10px 20px
+  &:hover
+    background: lighten($primary-color, 10%)
+.section-title
+  margin-bottom: 5px
+p
+  margin: 3px 0
+.hour
+  font-size: 30px
+  text-shadow: 2px 3px solid $primary-color
+@keyframes come-in
+  0%
+    width: 0
+  70%
+    width: 20%
+  100%
+    width: 40%
+@media (max-width: 768px)
+  .content
+    height: max-content
+    flex-direction: column
+    text-align: center
+  .side
+    width: 100%
+  .section-title
+    font-size: 16px
+  header
+    h2,
+    h1
+    font-size: .9em
+    

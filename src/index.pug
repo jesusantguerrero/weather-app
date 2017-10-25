@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    link(rel="stylesheet", href="./src/css/styles.css")
+
+    title Weather App
+  body
+    .wrapper#weather-app(:style="styles")
+      header
+        h2(data-model='app.name') Weather App FCC
+        h3 by Jesus
+        button(@click="toggleGrade") {{ grade }}
+      section.content
+        .side
+          img.main-image(:src="report.weather[0].icon")
+          h1 {{ report.name}}, {{ report.sys.country}}
+          h3 {{ report.weather[0].main}} | {{ report.weather[0].description}}
+          .section-part
+            h2.section-title Temperature
+            p.item Max: <span class="remark">{{ temp_max }} {{ grade }} </span>
+            p.item Min: <span class="remark">{{ temp_min }} {{ grade }}</span>
+          .section-part
+            h2.section-title Wind
+            p.item Speed: <span class="remark"> {{report.wind.speed}}</span>
+          .section-part
+            h2.section-title More
+            p.item Humidity: <span class="remark"> {{report.main.humidity}}</span>
+            p.item Pressure: <span class="remark"> {{report.main.pressure}}</span>
+            p.item Sunrise: <span class="remark"> {{report.sys.sunrise | hours}}</span>
+            p.item Sunset: <span class="remark"> {{report.sys.sunset | hours}}</span>
+        .right
+          h2.hour {{ time }}
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js")
+    script(src="./src/js/scripts.js")
